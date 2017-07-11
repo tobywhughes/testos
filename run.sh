@@ -1,0 +1,2 @@
+./buildiso.sh
+./qemu.sh
