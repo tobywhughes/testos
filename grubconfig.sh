@@ -5,9 +5,9 @@ mkdir -p isodir/boot
 mkdir -p isodir/boot/grub
  
 cat > isodir/boot/grub/grub.cfg << EOF
-menuentry "myos" {
-	multiboot /boot/myos.kernel
+menuentry "testos" {
+	multiboot /boot/testos.bin
 }
 EOF
-cp testos.bin isodir/boot/myos.bin
+cp testos.bin isodir/boot/testos.bin
 grub-mkrescue -o testos.iso isodir
