@@ -1,4 +1,4 @@
-PROJDIRS := kernel arch/i386
+PROJDIRS := include/kernel kernel arch/i386
 SRCFILES := $(shell find $(PROJDIRS) -type f -name "*.c")
 ASMFILES := $(shell find $(PROJDIRS) -type f -name "*.s")
 LNKFILES := $(shell find $(PROJDIRS) -type f -name "*.ld")
@@ -7,6 +7,7 @@ AOBFILES := $(patsubst %.s,%.o, $(ASMFILES))
 WARNINGS := -Wall -Wextra
 CFLAGS := -g -std=c99 -ffreestanding $(WARNINGS)
 CC := i686-elf
+.PHONY: all clean headers
 
 all: $(SRCFILES)
 	$(CC)-gcc $(CFLAGS) -c $(SRCFILES) -o $(OBJFILES)
@@ -18,5 +19,6 @@ clean:
 	rm -f $(AOBFILES)
 	rm -f testos.bin
 	
-	
+headers:
+	cp -R include/. $(SYSROOT)/usr/include/.
 
