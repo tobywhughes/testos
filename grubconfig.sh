@@ -9,5 +9,5 @@ menuentry "testos" {
 	multiboot /boot/testos.bin
 }
 EOF
-cp testos.bin isodir/boot/testos.bin
+cp kernel/testos.bin isodir/boot/testos.bin
 grub-mkrescue -o testos.iso isodir
