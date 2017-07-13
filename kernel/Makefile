@@ -10,7 +10,7 @@ CC := i686-elf
 .PHONY: all clean headers
 
 all: $(SRCFILES)
-	$(CC)-gcc $(CFLAGS) -c $(SRCFILES) -o $(OBJFILES)
+	$(CC)-gcc -MD --sysroot=$(SYSROOT) -isystem=/usr/include  $(CFLAGS) -c $(SRCFILES) -o $(OBJFILES)
 	$(CC)-as -c $(ASMFILES) -o $(AOBFILES)
 	$(CC)-gcc -T arch/i386/linker.ld -o testos.bin -ffreestanding -O2 -nostdlib $(OBJFILES) $(AOBFILES)
 
