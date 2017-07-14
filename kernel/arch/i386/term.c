@@ -30,7 +30,7 @@ uint16_t get_loc(void)
 
 void update_loc(void)
 {
-	if (col == MAX_W)
+	if (col == MAX_W - 1)
 	{
 		col = 0;
 		row++;
