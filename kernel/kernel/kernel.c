@@ -6,13 +6,5 @@
 void kernel_init(void)
 {
 	term_init();
-	term_print_char('H');
-	term_print_char('E');
-	term_print_char('L');
-	term_print_char('L');
-	term_print_char('O');
-	term_print_char(' ');
-	term_print_char('O');
-	term_print_char('S');
-	term_print_string("test");
+	term_print_string("HELLO WORLD");
 }

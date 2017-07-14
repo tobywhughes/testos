@@ -1,33 +1,26 @@
 #include <stddef.h>
+#include <stdint.h>
 #include <kernel/term.h>
+#include <string.h>
 
-size_t strln(const char*);
 
 //Global Vars
 static volatile char *vram;
-static char term_color;
+static uint8_t term_color;
 
-size_t strlen(const char* str)
-{
-	size_t len = 0;
-	while(*str != '\0')
-	{
-		len++;
-		str++;
-	}
-	return len;
-}
 //Functions
 void term_init(void)
 {
 	vram = (volatile char*) 0xB8000;
-	term_color = 0x07;
+	uint8_t color_fground = 0x7;
+	uint8_t color_bground = 0x0;
+	term_color = color_bground << 4 | color_fground;
 }
 
 void term_print_char(char c)
 {
 	*vram++ = c;
-	*vram++ = term_color;	
+	*vram++ = (char) term_color;	
 }
 
 void term_print_string(const char* str)
