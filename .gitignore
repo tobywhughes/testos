@@ -1,5 +1,6 @@
 *.iso
 *.o
 *.bin
+*.d
 isodir
 sysroot
