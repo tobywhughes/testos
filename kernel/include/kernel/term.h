@@ -3,8 +3,8 @@
 
 #include <stddef.h>
 
-void term_init();
-void term_write_char(char c);
-void term_write_string(const char* data);
+void term_init(void);
+void term_print_char(char);
+void term_print_string(const char*);
 
 #endif

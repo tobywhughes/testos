@@ -4,7 +4,10 @@ ASMFILES := $(shell find $(PROJDIRS) -type f -name "*.s")
 LNKFILES := $(shell find $(PROJDIRS) -type f -name "*.ld")
 OBJFILES := $(patsubst %.c,%.o,$(SRCFILES))
 AOBFILES := $(patsubst %.s,%.o, $(ASMFILES))
-WARNINGS := -Wall -Wextra
+WARNINGS := -Wall -Wextra -pedantic -Wshadow -Wpointer-arith -Wcast-align\
+	    -Wwrite-strings \
+            -Wredundant-decls -Wnested-externs -Winline -Wno-long-long \
+	    -Wuninitialized -Wconversion -Wstrict-prototypes
 CFLAGS := -g -std=c99 -ffreestanding $(WARNINGS)
 CC := i686-elf
 .PHONY: all clean headers
