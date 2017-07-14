@@ -6,5 +6,7 @@
 void kernel_init(void)
 {
 	term_init();
-	term_print_string("HELLO WORLD");
+	for(int i = 0; i < 100; i++){
+		term_print_string("a\n");
+	}
 }
