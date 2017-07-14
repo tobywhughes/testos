@@ -14,4 +14,5 @@ void kernel_init(void)
 	term_print_char(' ');
 	term_print_char('O');
 	term_print_char('S');
+	term_print_string("test");
 }
