@@ -1,4 +1,4 @@
-PROJDIRS := include/kernel kernel arch/i386
+PROJDIRS := include/kernel include/driver kernel arch/i386 arch/driver
 SRCFILES := $(shell find $(PROJDIRS) -type f -name "*.c")
 ASMFILES := $(shell find $(PROJDIRS) -type f -name "*.s")
 LNKFILES := $(shell find $(PROJDIRS) -type f -name "*.ld")
@@ -10,7 +10,7 @@ WARNINGS := -Wall -Wextra -pedantic -Wshadow -Wpointer-arith -Wcast-align\
 	    -Wwrite-strings \
             -Wredundant-decls -Wnested-externs -Winline -Wno-long-long \
 	    -Wuninitialized -Wconversion -Wstrict-prototypes
-CFLAGS := -g -std=c99 -ffreestanding $(WARNINGS)
+CFLAGS := -g -std=gnu99 -ffreestanding $(WARNINGS)
 CC := i686-elf
 .PHONY: all clean headers
 
