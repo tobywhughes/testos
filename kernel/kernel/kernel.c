@@ -9,7 +9,7 @@ void kernel_init(void)
 	while(1)
 	{
 		char c =  getChar();
-		term_print_char(c);
+		term_print_string(&c);
 	}
 	for(int i = 0; i < 100; i++)
 	{

@@ -51,14 +51,22 @@ void term_print_char(char c)
 
 bool parse_char(char c)
 {
-	if(c == '\n'){
-		row++;
-		col = 0;
-		return false;
+	switch(c)
+	{
+		case '\n':
+			row++;
+			col = 0;
+			return false;
+		case (char) 0x08:
+			col--;
+			term_print_char('\0');
+			col--;
+			return false;
+		default:
+			return true;
+			break;
 	}
-	else {
-		return true;
-	}
+	
 }
 
 void term_print_string(const char* str)
