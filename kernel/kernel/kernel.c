@@ -6,8 +6,11 @@
 void kernel_init(void)
 {
 	term_init();
-	char code = getScancode();
-	term_print_string(code);
+	while(1)
+	{
+		char c =  getChar();
+		term_print_char(c);
+	}
 	for(int i = 0; i < 100; i++)
 	{
 		term_print_string("0123456789");
