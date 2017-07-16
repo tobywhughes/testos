@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <kernel/term.h>
+#include <driver/io.h>
 #include <string.h>
 
 #define MAX_W 80
@@ -54,9 +55,20 @@ void term_print_char(char c)
 	update_loc();	
 }
 
+void log_print(const char * str)
+{
+	while (*str != '\0')
+	{
+		outb(COM1, *str);
+		str++;
+	}
+}
+
 void exec_line(const char * str)
 {
 	keyboard_on = false;
+	log_print(str);
+	log_print("\n");
 //	term_print_string(str);
 //	term_print_string("\n");
 	if(strcmp(str, "TEST") == 0)

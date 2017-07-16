@@ -3,5 +3,6 @@
 *.bin
 *.d
 *.a
+*.log
 isodir
 sysroot

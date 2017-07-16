@@ -1,7 +1,7 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <driver/kbdrive.h>
-#include "io.h"
+#include <driver/io.h>
 
 static char c = 0;
 
