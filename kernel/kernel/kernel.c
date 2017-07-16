@@ -1,12 +1,13 @@
 #include <stddef.h>
 #include <stdint.h>
+#include <stdbool.h>
 #include <kernel/term.h>
 #include <driver/kbdrive.h>
 //Functions
 void kernel_init(void)
 {
 	term_init();
-	while(1)
+	while(get_keyboard_state() == true)
 	{
 		char c =  getChar();
 		term_print_string(&c);
