@@ -58,9 +58,11 @@ bool parse_char(char c)
 			col = 0;
 			return false;
 		case (char) 0x08:
-			col--;
-			term_print_char('\0');
-			col--;
+			if(col > 0){
+				col--;
+				term_print_char('\0');
+				col--;
+			}
 			return false;
 		default:
 			return true;
